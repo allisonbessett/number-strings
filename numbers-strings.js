@@ -1,12 +1,7 @@
 
-//TODO: Each time a user submits an input, check if it is a Number
-//TODO: If it is a number, update the display to show how many numbers have been entered
-//TODO: Show sum of numbers
-//TODO: Show average of numbers
+//TODO: Change all js to jQuery
 //TODO: If it is a string, concatenate it onto all of the strings that have been entered 
-//TODO: Display the number of strings that have been entered 
-//TODO: Show accumulated contatenation
-//TODO: Show reset button
+
 
 
 var countMsg = document.createElement('h4'); // pg 285
@@ -33,7 +28,7 @@ function updateForm() {
   sumText.nodeValue = 'Sum: ' + sum;
   aveText.nodeValue = 'Average: ' + avg;
 }
-//---------------------------------------------------------------------
+
 var submitButton = document.getElementById('submit');
 var numberLetter;
 
@@ -61,16 +56,7 @@ submitButton.addEventListener('click', function (e) {
     newMsg.textContent = numberLetter + " is not a number";
     return;
   }
-
-  //check if numberLetter is a number
-  //if it is a number, continue to compute count, sum, avg
-  //if it is not a number, dont compute count, sum, avg and print error message
-
-//--------------------------------------------------------------------    
-//  ++count;
-//  sum += parseFloat(numberLetter, 10);
-//  avg = sum / count;
-//  updateForm();                                          
+                                         
 }, false);
 
 
