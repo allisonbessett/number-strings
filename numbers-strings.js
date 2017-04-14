@@ -44,28 +44,33 @@ var newMsg = document.getElementById('msg'); //Find where text element should go
 newMsg.appendChild(newPara); //Append it there
 
 submitButton.addEventListener('click', function (e) {
+  if (e.preventDefault) { //stops form from being sent
+    e.preventDefault();
+  } else {
+    e.returnValue = false;
+  }  
   var numberLetter = document.getElementById('numberLetter').value;
   if (!isNaN(numberLetter)) {
     newMsg.textContent = numberLetter + " is a number";
+     ++count;
+  sum += parseFloat(numberLetter, 10);
+  avg = sum / count;
+  updateForm(); 
     return;
   } else {
     newMsg.textContent = numberLetter + " is not a number";
     return;
   }
+
   //check if numberLetter is a number
   //if it is a number, continue to compute count, sum, avg
   //if it is not a number, dont compute count, sum, avg and print error message
 
 //--------------------------------------------------------------------    
-  ++count;
-  sum += parseFloat(numberLetter, 10);
-  avg = sum / count;
-  updateForm();
-  if (e.preventDefault) { //stops form from being sent
-    e.preventDefault();
-  } else {
-    e.returnValue = false;
-  }                                            
+//  ++count;
+//  sum += parseFloat(numberLetter, 10);
+//  avg = sum / count;
+//  updateForm();                                          
 }, false);
 
 
