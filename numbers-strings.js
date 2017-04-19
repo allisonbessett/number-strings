@@ -34,31 +34,26 @@ $(function () {
   $submitButton.on("click", function (event) {
     event.preventDefault();
     var $num = $("#numberLetter").val();
-    console.log("num = " + $num);
+//    console.log("num = " + $num);
     if ($.isNumeric($num)) {
-      console.log("it is a number");
-      $msg.text = $num + " is a number";
+//      console.log("it is a number");
+      $msg.html($num + " is a number");
       ++count;
       sum += parseFloat($num, 10);
       avg = sum / count;
       updateForm();
     } else {
-      $msg.text = $num + " is not a number";
+       $msg.text($num + " is not a number");
     }
   });
 
-
-
-//  var resetButton = document.getElementById('reset');
-//  resetButton.addEventListener('click', function (e) {
-//    count = 0;
-//    sum = 0;
-//    avg = 0;
-//    updateForm();
-//    if (e.preventDefault) { //stops form from being sent
-//      e.preventDefault();
-//    } else {
-//      e.returnValue = false;
-//    }                                             
-//  }, false);
+  var $resetButton = $("#reset");
+  $resetButton.on("click", function (event) {
+    event.preventDefault; 
+    $msg.html("");
+      count = 0;
+      sum = 0;
+      avg = 0;
+    updateForm();                                     
+  });
 });
