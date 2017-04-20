@@ -9,11 +9,13 @@ $(function () {
   var count = 0;
   var sum = 0;
   var avg = 0;
+  var strs = "";
 
   var $li = $("li");
   var $countMsg = $("countMsg");
   var $sumMsg = $("sumMsg");
   var $avgMsg = $("avgMsg");
+  var $conc = $("#conc");
   
   $countMsg = $('li[id="countMsg"]').append("Count: ");
   $sumMsg = $('li[id="sumMsg"]').append("Sum: ");
@@ -25,6 +27,7 @@ $(function () {
     $countMsg.html("Count: " + count);
     $sumMsg.html("Sum: " + sum);
     $avgMsg.html("Average: " + avg);
+      $conc.html(strs);
   }
  
   var $msg = $("#msg");
@@ -44,6 +47,8 @@ $(function () {
       updateForm();
     } else {
        $msg.text($num + " is not a number");
+      strs += $num + " ";
+      updateForm();
     }
   });
 
@@ -54,6 +59,10 @@ $(function () {
       count = 0;
       sum = 0;
       avg = 0;
+      strs = "";
     updateForm();                                     
   });
+  
+  
+  
 });
